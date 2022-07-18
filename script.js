@@ -47,7 +47,7 @@ function successUI(data) {
     <img src="./Time/day.svg" alt="">
 
     <div class="icon">
-        <img src="http://openweathermap.org/img/w/${state.icon}.png" alt="">
+        <img src="http://openweathermap.org/img/w/${state.icon}.png" alt="${state.name} weather icon">
     </div>
 
     <div class="info">
