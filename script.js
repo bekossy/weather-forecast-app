@@ -1,14 +1,9 @@
 const openWeatherApi = "3d59a6cbbbad8955c5abd31417471e0d";
 const openUrl = "http://api.openweathermap.org/data/2.5/weather?q=";
-
-const accuWeatherApi = "dNMAEwOyOxwzbi6tABKbPNh0BALUOLug";
-
-const info = document.querySelector('.info');
-
+const info = document.querySelector(".info");
 const empty = document.querySelector(".empty");
 const card = document.querySelector(".card");
 const form = document.querySelector(".location");
-const body = document.querySelector("body");
 let state = {};
 
 form.addEventListener("submit", (e) => {
@@ -40,15 +35,15 @@ function successUI(data) {
     name: parsed.name,
     time: parsed.dt,
     temp: parsed.main.temp,
-  }
+  };
 
-    var degC = state.temp - 273.15;
-    var degCInt = Math.floor(degC);
-    var degF = degC * 1.8 + 32;
-    var degFInt = Math.floor(degF);
-    const time = new Date(state.time);
+  var degC = state.temp - 273.15;
+  var degCInt = Math.floor(degC);
+  var degF = degC * 1.8 + 32;
+  var degFInt = Math.floor(degF);
+  const time = new Date();
 
-    card.innerHTML = `
+  card.innerHTML = `
     <img src="./Time/day.svg" alt="">
 
     <div class="icon">
@@ -65,15 +60,16 @@ function successUI(data) {
             <span>${degFInt} &deg;F</span>
         </div>
     </div>
-    `
+    `;
 
   card.style.display = "block";
-  body.style.backgroundImage = "linear-gradient(1deg, white, #6390bd)";
+  document.body.style.backgroundImage = "linear-gradient(1deg, white, #6390bd)";
   empty.style.display = "none";
 }
 
 function errorUI() {
-  body.style.backgroundColor = "#a3a3a3";
+  document.body.style.backgroundColor = "#a3a3a3";
+  document.body.style.backgroundImage = "";
   empty.style.display = "block";
   card.style.display = "none";
 }
