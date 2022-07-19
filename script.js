@@ -63,13 +63,12 @@ function successUI(data) {
     `;
 
   card.style.display = "block";
-  document.body.style.backgroundImage = "linear-gradient(1deg, white, #6390bd)";
+  document.body.style.background = "linear-gradient(1deg, white, #6390bd)";
   empty.style.display = "none";
 }
 
 function errorUI() {
-  document.body.style.backgroundColor = "#a3a3a3";
-  document.body.style.backgroundImage = "";
+  document.body.style.background = "#a3a3a3";
   empty.style.display = "block";
   card.style.display = "none";
 }
