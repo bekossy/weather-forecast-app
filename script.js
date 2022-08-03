@@ -28,7 +28,6 @@ form.addEventListener("submit", (e) => {
 
 function successUI(data) {
   const parsed = JSON.parse(data);
-  console.log(parsed);
   state = {
     desc: parsed.weather[0].description,
     icon: parsed.weather[0].icon,
