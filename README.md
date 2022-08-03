@@ -6,6 +6,6 @@ This Weather app project fetches data from the [OpenWeather API](https://openwea
 
 - The current weather condition of the inputted location.
 
-- An icon based on the current weather condition of the location.
+- An icon based on the weather description of the location.
 
 - Time of the inputted location.
