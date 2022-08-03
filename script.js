@@ -42,6 +42,8 @@ function successUI(data) {
   var degF = degC * 1.8 + 32;
   var degFInt = Math.floor(degF);
   const time = new Date();
+  let hour = time.getHours();
+  let min = time.getMinutes();
   const day = "./Time/day.svg";
   const night = "./Time/night.svg";
   let lightTime = "";
@@ -53,20 +55,25 @@ function successUI(data) {
     lightTime = night;
     document.body.style.background = "linear-gradient(1deg, black, #072849);";
   }
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+
+  if (min < 10) {
+    min = `0${min}`;
+  }
 
   card.innerHTML = `
     <img src=${lightTime} alt="">
 
     <div class="icon">
-        <img src="http://openweathermap.org/img/w/${state.icon}.png" alt="${
-    state.name
-  } weather icon">
+        <img src="http://openweathermap.org/img/w/${state.icon}.png" alt="${state.name} weather icon">
     </div>
 
     <div class="info">
         <h2>${state.name}</h2>
         <div>${state.desc}</div>
-        <div>Time: <b>${time.getHours()}:${time.getMinutes()}</b></div>                
+        <div>Time: <b>${hour}:${min}</b></div>                
 
         <div class="temp">
             <span>${degCInt} &deg;C</span> /
