@@ -42,12 +42,25 @@ function successUI(data) {
   var degF = degC * 1.8 + 32;
   var degFInt = Math.floor(degF);
   const time = new Date();
+  const day = "./Time/day.svg";
+  const night = "./Time/night.svg";
+  let lightTime = "";
+  if (time.getHours() >= 5 || time.getHours() <= 18) {
+    lightTime = day;
+    document.body.style.background = "linear-gradient(1deg, white, #6390bd)";
+  }
+  if (time.getHours() > 18 || time.getHours() <= 4) {
+    lightTime = night;
+    document.body.style.background = "linear-gradient(1deg, black, #072849);";
+  }
 
   card.innerHTML = `
-    <img src="./Time/day.svg" alt="">
+    <img src=${lightTime} alt="">
 
     <div class="icon">
-        <img src="http://openweathermap.org/img/w/${state.icon}.png" alt="${state.name} weather icon">
+        <img src="http://openweathermap.org/img/w/${state.icon}.png" alt="${
+    state.name
+  } weather icon">
     </div>
 
     <div class="info">
@@ -63,7 +76,6 @@ function successUI(data) {
     `;
 
   card.style.display = "block";
-  document.body.style.background = "linear-gradient(1deg, white, #6390bd)";
   empty.style.display = "none";
 }
 
